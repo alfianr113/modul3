@@ -1,0 +1,47 @@
+<!--
+Nama : Alfian Rahman
+Nim : 3411181194
+Kelas : DSE-C
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tugas Implementasi Interface</title>
+	</head>
+	<body>
+	<form name="tUgas" action="" onsubmit="return validateForm()" method="POST">
+	<input type="text" name="username" id="user" pattern=".{3,15}"placeholder="Username">Isi dengan 3 - 15 karakter<br>
+	<input type="password" name="password" id="pw1" pattern="(?=^.{4,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="Password" required> password minimal 4 digit, berisi huruf besar, kecil<br>
+	<input type="password" name="repeat" id="pw2" placeholder="Ulangi Password" required>Confirm Password<br>
+	<input type="email" name="email" id="email" placeholder="Email" required>Gunakan Format Email<br>
+	<input type="text" name="telp" id="telp" pattern="[0-9]{10,12}" placeholder="Nomor Telpon" required>isi dengan 10-12 digit angka<br>
+	<textarea id="alamat" style="width: 167px;" required></textarea> wajib diisi<br>
+	<input type="submit" value="Submit">
+	</form>
+	<script type="text/javascript">
+		function validateForm(){
+			var telp = document.tUgas.telp.value;
+			if((telp.length<3) || (telp.length>12)){
+				alert("Telpon harus berisi 10-12 digit");
+				return false;
+			}
+		return true;
+		}
+		</script>
+		<script type="text/javascript">
+		    window.onload = function () {
+		        document.getElementById("pw1").onchange = validatePassword;
+		        document.getElementById("pw2").onchange = validatePassword;
+		    }
+
+		    function validatePassword(){
+			    var pass2=document.getElementById("pw2").value;
+			    var pass1=document.getElementById("pw1").value;
+			    if(pass1!=pass2)
+			        document.getElementById("pw2").setCustomValidity("Passwords Tidak Sama, Coba Lagi");
+			    else
+			        document.getElementById("pw2").setCustomValidity('');
+			}
+		</script>
+	</body>
+</html>
